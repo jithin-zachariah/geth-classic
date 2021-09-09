@@ -19,13 +19,13 @@ jobs:
         with:
           registry: ghcr.io
           username: jithin-zachariah
-          password: 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
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: docker build latest
         run: |
           docker build --build-arg GPR_TOKEN -t $DOCKER_REGISTRY/jithin-zachariah/geth-classic:latest .
         env:
-          GPR_TOKEN: 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
+          GPR_TOKEN: ${{ secrets.GHCR_TOKEN }}
           DOCKER_REGISTRY: ghcr.io
 
       - name: docker push latest

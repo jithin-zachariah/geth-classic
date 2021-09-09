@@ -17,7 +17,7 @@ jobs:
       - name: container registry login
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io/jithin-zachariah
+          registry: ghcr.io
           username: jithin-zachariah
           password: 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
 
@@ -26,10 +26,10 @@ jobs:
           docker build --build-arg GPR_TOKEN -t $DOCKER_REGISTRY/jithin-zachariah/geth-classic:latest .
         env:
           GPR_TOKEN: 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
-          DOCKER_REGISTRY: ghcr.io/jithin-zachariah
+          DOCKER_REGISTRY: ghcr.io
 
       - name: docker push latest
         run: |
           docker push $DOCKER_REGISTRY/jithin-zachariah/geth-classic:latest
         env:
-          DOCKER_REGISTRY: ghcr.io/jithin-zachariah
+          DOCKER_REGISTRY: ghcr.io
